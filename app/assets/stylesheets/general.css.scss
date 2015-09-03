@@ -1,0 +1,32 @@
+header {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+footer {
+  text-align: center; 
+  background-color: #F8F8F8;
+  border-color: #E7E7E7;
+  border-radius: 4px;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent; 
+  line-height: 50px;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.jumbotron {
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 50px;
+  .big {
+    font-size: 50px;
+    font-family: Comic Sans MS, Georgia, “Times New Roman”, Times;
+  }
+}

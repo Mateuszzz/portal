@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Portal</title>
+  <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  
+  <header>
+     <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to "Focus",   '#', class: "navbar-brand"  %>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", "#" %></li>
+          <li><%= link_to "About", "#" %></li>
+          <li><%= link_to "Contact", "#" %></li>
+        </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Sign up",   '#' %></li>
+              <li><%= link_to "Log in", '#' %></li>
+            </ul>
+          </div>
+        </div>
+      </nav>  
+  </header>
+  
+  <div class="container">       
+    <%= yield %>    
+  </div>
+  
+  <footer>
+    Created by Mateusz
+  </footer>
+  
 </body>
 </html>
