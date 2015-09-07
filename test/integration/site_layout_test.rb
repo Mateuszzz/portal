@@ -17,7 +17,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "title", "Sign up"
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", contact_path
-    #assert_select "a[href=?]", signup_path, count: 0
+    assert_select "a[href=?]", signup_path, count: 1
     assert_select "a.btn.btn-lg.btn-primary", count: 0
 
   end

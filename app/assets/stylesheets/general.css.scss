@@ -18,6 +18,21 @@ footer {
   margin-right: 100px;
 }
 
+.container {
+  margin-top: 25px;
+  
+  h1, .info, .form-actions {
+    text-align: center;
+  }
+  
+  .form-inputs {
+	input {
+      width: 100% ;
+      margin-bottom: 15px;
+    }
+  }
+}
+
 .jumbotron {
   text-align: center;
   display: block;
