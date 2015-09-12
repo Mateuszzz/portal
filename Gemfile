@@ -39,3 +39,5 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'bootstrap-sass', '~> 3.3.5'
+
+gem 'carrierwave', '0.10.0'

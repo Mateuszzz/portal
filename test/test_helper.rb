@@ -6,5 +6,13 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def logged_in?
+    !session[:user_id].nil?
+  end
+  
+  def log_in_as(user)
+      post login_path, email: user.email, password: "password"
+  end
+  
+
 end

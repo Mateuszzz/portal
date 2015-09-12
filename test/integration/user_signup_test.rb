@@ -18,8 +18,12 @@ class UserSignupTest < ActionDispatch::IntegrationTest
       post users_path, user: { name: "Tom", email: "Tom@test.com", password: "password", password_confirmation: "password" }
     end
     assert_redirected_to user_path(assigns(:user))
+    follow_redirect!
+    assert_template 'users/show'
     assert_select 'div.alert.alert-danger', count: 0
     assert flash[:success]
+    assert logged_in?
+
   end
   
 end
