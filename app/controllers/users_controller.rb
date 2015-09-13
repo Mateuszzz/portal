@@ -28,7 +28,13 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    
+    if @user.update_attributes(edit_user_params)
+      
+      if params[:user][:remove_avatar] == "1" && params[:user][:avatar].blank?
+        remove_avatar(@user)
+      end
+      
       flash[:success] = "Profile updated"
       redirect_to @user
     else
@@ -40,6 +46,15 @@ class UsersController < ApplicationController
   
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
+    
+    def edit_user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+    end
+    
+    def remove_avatar(user)
+        user.avatar.destroy
+        user.save
     end
   
 end

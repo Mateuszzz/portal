@@ -1,1 +1,6 @@
+<% if @user.avatar? %>
+  <%= image_tag @user.avatar.url(), size: '75x75' %>
+<% else %>
+  <%= image_tag "profil.jpg", size: '75x75' %>
+<% end %>
 <%= @user.name %>
