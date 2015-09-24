@@ -1,0 +1,30 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<div class="search">
+  <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], class: "form-control input-sm", placeholder: "Search..." %>
+    <%= submit_tag "Search", class: "btn btn-primary btn-sm" %>
+  <% end %>  
+</div>
+	
+<%= render 'shared/pagination', object: @users %>
+
+<% if @users.present? %>
+
+  <ul class="users">
+    <% @users.each do |user| %>
+      <li>
+        <%= render 'shared/avatar', locals: {user: user, size: "75x75"} %>
+        <%= link_to user.name, user %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+    
+   <div>No users found.</div>
+
+<% end %>
+
+<%= render 'shared/pagination', object: @users %>

@@ -5,10 +5,9 @@
   <div class="col-md-6 col-md-offset-3">
     
     <%= form_for(@user, html: { multipart: true }) do |f| %>
-      <%= render 'shared/error_communicat' %>
+      <%= render 'shared/error_communicat', object: f.object %>
 
-      <div class="form-inputs">
-        
+      <div class="form-inputs">  
         <%= f.label :name %>
         <%= f.text_field :name %>
 
@@ -31,7 +30,6 @@
          <!--<%= image_tag @user.avatar.url(), size: '75x75' %> -->
           
         <% end %>
-        
       </div>
   
       <div class="form-actions">

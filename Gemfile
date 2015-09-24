@@ -37,5 +37,15 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
+
+#Use bootstrap in appliaction
 gem 'bootstrap-sass', '~> 3.3.5'
+
+#Upload file to database
 gem 'paperclip', '3.5.4'
+
+#Pagination
+gem 'will_paginate', '~> 3.0.6'
+
+#Bootstrap to pagination
+gem 'will_paginate-bootstrap', '~> 1.0.1'

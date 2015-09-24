@@ -1,4 +1,6 @@
 class MainPagesController < ApplicationController
+  before_action :redirect, only: [:home]
+  
   def home
   end
 

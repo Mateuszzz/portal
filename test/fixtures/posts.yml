@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first:
+  user: john
+  title: "Holiday!"
+  picture_file_name: picture.jpg
+  picture_content_type: image/jpeg
+  picture_file_size: 22331
+  picture_updated_at: 2015-09-14 10:42:12
+  
+second:
+  user: john
+  title: "Holiday2!"
+  picture_file_name: picture2.jpg
+  picture_content_type: image/jpeg
+  picture_file_size: 22331
+  picture_updated_at: 2015-09-14 11:42:12
+  
+third:
+  user: matt
+  title: "My house!"
+  picture_file_name: picture3.jpg
+  picture_content_type: image/jpeg
+  picture_file_size: 22331
+  picture_updated_at: 2015-09-14 14:42:12   

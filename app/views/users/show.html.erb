@@ -1,6 +1,51 @@
-<% if @user.avatar? %>
-  <%= image_tag @user.avatar.url(), size: '75x75' %>
-<% else %>
-  <%= image_tag "profil.jpg", size: '75x75' %>
-<% end %>
-<%= @user.name %>
+<% provide(:title, @user.name) %>
+<div class="info">
+  
+  <div class="avatar">
+   <%= render 'shared/avatar', locals: {user: @user, size: "125x125"} %>
+  </div>
+  
+  <div class="information">
+    <b><%= @user.name %></b></br>
+    <b><%= @user.posts.count %> posts</b>
+  </div>
+
+  <% if current_user == @user %>
+    <div class="post"> 
+  
+      <%= form_for(@post, html: { multipart: true }) do |f| %>
+        <%= render 'shared/error_communicat', object: f.object %>
+      
+        <div class="form-inputs_small">
+          <%= f.text_field :title, placeholder: "Title" %>    
+          <%= f.file_field :picture %>  
+        </div>
+      
+        <div class="form-actions">
+          <%= f.submit "Create post", class: "btn btn-primary" %>
+        </div>
+      
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="hr"><hr></div>
+
+<div class="images"> 
+  <% @posts.each do |post| %>
+    <div class="image">
+      <%= image_tag post.picture.url(), size: '250x250', title: post.title %>
+      <% if current_user == @user %>
+        <div class="delete">
+          <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="pagination">
+  <%= render 'shared/pagination', object: @posts %>
+</div>  
+     

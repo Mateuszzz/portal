@@ -11,8 +11,11 @@ class ActiveSupport::TestCase
   end
   
   def log_in_as(user)
+    if defined?(post_via_redirect)
       post login_path, email: user.email, password: "password"
+    else
+      session[:user_id] = user.id
+    end
   end
-  
 
 end

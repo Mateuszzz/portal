@@ -3,11 +3,13 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
+    extend ActionDispatch::TestProcess
+    @picture = fixture_file_upload('files/picture.jpg', 'image/jpg')
     @user = User.new(name: "Tom Test", email: "tom@test.com",
                      password: "password", password_confirmation: "password")
   end
 
-  test "should be valid" do
+  test "user should be valid" do
     assert @user.valid?
   end
   
@@ -75,6 +77,14 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.name = "James Test"
     @user.save
     assert_not duplicate_user.valid?
+  end
+  
+  test "posts should be destroyed with user" do
+    @user.save
+    @user.posts.create(title: "Holiday!", picture: @picture)
+    assert_difference 'Post.count', -1 do
+      @user.destroy
+    end
   end
 
   

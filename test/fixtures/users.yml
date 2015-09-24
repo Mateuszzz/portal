@@ -3,11 +3,11 @@
 john:
   name: John
   email: john@test.com
-  password_digest: <%= User.digest('password') %>
+  password_digest: <%= BCrypt::Password.create('password') %>
   
 matt:
   name: matt
   email: matt@test.com
-  password_digest: <%= User.digest('password') %>
+  password_digest: <%= BCrypt::Password.create('password') %>
 
 

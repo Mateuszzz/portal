@@ -6,7 +6,7 @@
     
     <%= form_for(@user) do |f| %>
     
-      <%= render 'shared/error_communicat' %>
+      <%= render 'shared/error_communicat', object: f.object %>
     
       <div class="form-inputs">
         <%= f.label :name %>
