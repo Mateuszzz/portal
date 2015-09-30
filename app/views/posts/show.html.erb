@@ -1,0 +1,18 @@
+<div class="show_image">
+  <div class="left_side">
+    <%= image_tag @post.picture.url(), size: '450x550', title: @post.title %>
+  </div>
+  <div class="right_side">
+    <div class="info">
+      <div class="profile">
+        <%= render 'shared/avatar', locals: {user: @post.user, size: "50x50"} %></br>
+        <b><%= @post.user.name %></b></br>
+      </div>
+      <div class="information">
+        <b><%= @post.title %></b></br>
+        <i><%= time_ago_in_words(@post.created_at) %> ago.</i>
+      </div>   
+    </div>
+    <div class="line"><hr></div>
+</div>
+

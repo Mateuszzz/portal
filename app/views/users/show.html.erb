@@ -30,12 +30,14 @@
   <% end %>
 </div>
 
-<div class="hr"><hr></div>
+<div class="line"><hr></div>
 
-<div class="images"> 
+<div class="album"> 
   <% @posts.each do |post| %>
     <div class="image">
-      <%= image_tag post.picture.url(), size: '250x250', title: post.title %>
+      <%= link_to post do %>
+        <%= image_tag post.picture.url(), size: '250x250', title: post.title %>
+      <% end %>  
       <% if current_user == @user %>
         <div class="delete">
           <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>

@@ -103,7 +103,7 @@ footer {
   margin-top: 20px;
 }
 
-.images{
+.album{
   margin-top: 30px;
   margin-bootom: 50px;
   margin-left: auto;
@@ -114,11 +114,30 @@ footer {
 .image{
   display:inline-block;
   margin-left: 40px;
-  margin-top: 40px;
-  
+  margin-top: 40px; 
 }
 
-.hr{
+.show_image{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+   border: 1px solid black;
+  
+  .left_side{
+    display:inline-block;
+  }
+  
+  .right_side{
+    padding: 25px 10px;
+    display:inline-block;
+    vertical-align: top;
+    width: 340px;
+    height: 500px;
+  }
+}
+
+.line{
 
   hr {
     color: gray;
@@ -156,5 +175,9 @@ footer {
 .delete{
   text-align: center;
   margin-top: 10px;
+}
+
+.profile{
+  margin-bottom: 10px;
 }
   
