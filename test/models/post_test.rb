@@ -31,6 +31,5 @@ class PostTest < ActiveSupport::TestCase
   test "title should not be too long" do
     @post.title= "a" * 151
     assert_not @post.valid?
-  end
-  
+  end 
 end

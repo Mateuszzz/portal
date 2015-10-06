@@ -66,7 +66,6 @@ footer {
   }
 }
 
-
 .search {
   margin-left: auto;
   margin-right: auto;
@@ -99,10 +98,6 @@ footer {
   }
 }
 
-.post{
-  margin-top: 20px;
-}
-
 .album{
   margin-top: 30px;
   margin-bootom: 50px;
@@ -129,16 +124,27 @@ footer {
   }
   
   .right_side{
-    padding: 25px 10px;
+    padding: 15px 10px;
     display:inline-block;
     vertical-align: top;
     width: 340px;
-    height: 500px;
+    height: 550px;
+    .top{
+      height: 450px;
+    }
+    
+    .down{
+      margin-top: 10px;
+      
+      .login{
+        margin-top: 15px;
+        text-align: center;
+      }
+    }
   }
 }
 
 .line{
-
   hr {
     color: gray;
     background: gray;
@@ -158,6 +164,7 @@ footer {
 }
 
 .post{
+  margin-top: 20px;
   width: 250px;
   margin-left: auto;
   margin-right: auto;
@@ -180,4 +187,12 @@ footer {
 .profile{
   margin-bottom: 10px;
 }
+
+.comments{
+  height: 300px;
+  overflow-y: scroll;
   
+  .comment{  
+  margin-bottom: 5px;
+  }
+}

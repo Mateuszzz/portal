@@ -14,6 +14,5 @@ class UsersSearchTest < ActionDispatch::IntegrationTest
     assert_template 'users/index'
     assert_select 'ul.users li', count: 1
     assert_select 'a[href=?]', user_path(@user), text: @user.name
-  end
-  
+  end 
 end

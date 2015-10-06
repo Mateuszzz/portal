@@ -30,5 +30,4 @@ class PostCreateTest < ActionDispatch::IntegrationTest
     assert_select 'div.error_explanation', count: 0
     assert_match title, response.body
   end
- 
 end

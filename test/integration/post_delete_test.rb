@@ -16,6 +16,5 @@ class PostDeleteTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'users/show'
     assert_select '.alert.alert-success'
-  end
-  
+  end  
 end

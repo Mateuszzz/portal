@@ -19,6 +19,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
     @user.posts.paginate(page: 1).each do |post|
       assert_match post.title, response.body
     end
+    
     log_in_as(@user)
     assert_redirected_to @user
     follow_redirect!
@@ -27,6 +28,5 @@ class UserShowTest < ActionDispatch::IntegrationTest
     get user_path(@second_user)
     assert_select '.post', count: 0
     assert_select 'a', text: "Delete", count: 0
-  end
-  
+  end 
 end

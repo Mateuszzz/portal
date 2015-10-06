@@ -23,7 +23,5 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     assert_select 'div.alert.alert-danger', count: 0
     assert flash[:success]
     assert logged_in?
-
-  end
-  
+  end 
 end

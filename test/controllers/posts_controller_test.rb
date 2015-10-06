@@ -29,8 +29,5 @@ class PostsControllerTest < ActionController::TestCase
       delete :destroy, id: @post
     end
     assert_redirected_to @user
-
-  end
-  
-  
+  end 
 end

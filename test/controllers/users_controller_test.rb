@@ -21,5 +21,4 @@ class UsersControllerTest < ActionController::TestCase
     get :new
     assert_redirected_to @user
   end
-
 end

@@ -26,5 +26,4 @@ class MainPagesControllerTest < ActionController::TestCase
     get :home
     assert_redirected_to @user
   end
-
 end

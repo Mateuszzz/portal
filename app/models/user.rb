@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
                     format: { with: EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
                     
-  validates :password, presence: true, length: { minimum: 5, maximum: 40}
+  validates :password, presence: true, length: { minimum: 5, maximum: 40}, allow_nil: true
   
   has_attached_file :avatar
   validates :avatar, presence:false
