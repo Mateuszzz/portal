@@ -37,6 +37,12 @@
       </div>
           
     <% end %>
-
+    
+    <div class = "line"><hr/></div>
+      
+    <div class="delete">
+      <%= link_to "Delete your account", @user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+    
   </div>
 </div>

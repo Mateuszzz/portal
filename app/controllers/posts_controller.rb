@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     
     if @post.save
-      flash[:success] = "Post created successfully!"
+      flash[:success] = "Post was successfully created!"
       redirect_to current_user
     else
       @user = User.find(current_user.id)
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = "Post was successfully destroyed."
     redirect_to current_user
   end
   

@@ -14,15 +14,18 @@
           <%= render 'shared/avatar', locals: {user: @post.user, size: "40x40"} %></br>
           <b><%= @post.user.name %></b></br>
         </div>
+    
         <div class="information">
           <b><%= @post.title %></b></br>
           <i><%= time_ago_in_words(@post.created_at) %> ago.</i>
         </div>
+  
       </div>
 
       <div class="line"><hr></div>
     
       <div class="comments">
+        
         <% if @post.comments.present? %>
           <% @post.comments.each do |comment| %>
             <div class="comment">
@@ -31,11 +34,13 @@
           <% end %>
         <% else %>
           <i>No comments yet.</i>
-        <% end %>  
+        <% end %>
+        
       </div>
     </div>
     
     <div class="down">
+      
       <% if current_user %>
         <%= form_for([@post, Comment.new]) do |f| %>
         
@@ -47,12 +52,14 @@
           </div>
           
         <% end %>
+        
       <% else %>
         <div class="line"><hr></div>
         <div class="login">
           <%= link_to "Log in", login_path %> to comment this post
         </div>  
-      <% end %>  
+      <% end %>
+      
     </div>
   </div>
 </div>

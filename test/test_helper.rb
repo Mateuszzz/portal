@@ -11,10 +11,16 @@ class ActiveSupport::TestCase
   end
   
   def log_in_as(user)
-    if defined?(post_via_redirect)
+    if integration_test?
       post login_path, email: user.email, password: "password"
     else
       session[:user_id] = user.id
     end
+  end
+  
+  private
+  
+  def integration_test?
+      defined?(post_via_redirect)
   end
 end

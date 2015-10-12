@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorize, only: [:edit, :update]
-  before_action :check_user, only: [:edit, :update]
+  before_action :authorize, only: [:edit, :update, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
   before_action :redirect, only: [:new]
   
   def index
@@ -51,6 +51,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @user.destroy
+    flash[:success] = "User was successfully destroyed."
+    log_out
   end
   
   private
