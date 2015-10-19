@@ -9,7 +9,7 @@ class UsersSearchTest < ActionDispatch::IntegrationTest
   test "should find correct user" do
     get users_path
     assert_template 'users/index'
-    assert_select 'ul.users li', count: 2
+    assert_select 'ul.users li', count: 3
     get users_path, search: @user.name
     assert_template 'users/index'
     assert_select 'ul.users li', count: 1

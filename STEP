@@ -1,0 +1,15 @@
+== 20151012195145 AddMissingIndices: reverting ================================
+-- remove_index(:mailboxer_receipts, {:column=>[:receiver_id, :receiver_type]})
+   -> 0.0165s
+-- remove_index(:mailboxer_notifications, {:name=>"index_mailboxer_notifications_on_notified_object_id_and_type"})
+   -> 0.0050s
+-- remove_index(:mailboxer_notifications, {:column=>[:sender_id, :sender_type]})
+   -> 0.0040s
+-- remove_index(:mailboxer_notifications, {:column=>:type})
+   -> 0.0060s
+-- remove_index(:mailboxer_conversation_opt_outs, {:column=>:conversation_id})
+   -> 0.0040s
+-- remove_index(:mailboxer_conversation_opt_outs, {:name=>"index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type"})
+   -> 0.0020s
+== 20151012195145 AddMissingIndices: reverted (0.0395s) =======================
+

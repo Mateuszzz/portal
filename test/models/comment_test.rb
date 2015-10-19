@@ -9,9 +9,14 @@ class CommentTest < ActiveSupport::TestCase
     @comment =  @post.comments.build(user_id: 1, body: "Great picture!")
   end
   
-   test "comment should be valid" do
-      assert @comment.valid?
-   end
+  test "comment should be valid" do
+    assert @comment.valid?
+  end
+   
+  test "user_id should be present" do
+    @comment.user_id = ""
+    assert_not @comment.valid?
+  end
    
   test "body should be present" do
     @comment.body = ""

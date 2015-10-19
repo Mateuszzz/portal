@@ -9,5 +9,10 @@ matt:
   name: matt
   email: matt@test.com
   password_digest: <%= BCrypt::Password.create('password') %>
+  
+mark:
+  name: mark
+  email: mark@test.com
+  password_digest: <%= BCrypt::Password.create('password') %>  
 
 
