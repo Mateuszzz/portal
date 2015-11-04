@@ -31,6 +31,5 @@ class FriendshipTest < ActiveSupport::TestCase
   test "user_id should not equal friend_id" do
     @friendship.friend_id = @user.id
     assert_not @friendship.valid?
-  end
-  
+  end  
 end

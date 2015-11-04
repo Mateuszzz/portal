@@ -2,15 +2,16 @@
 <div class="info">
   
   <div class="avatar">
-   <%= render 'shared/avatar', locals: {user: @user, size: "125x125"} %>
+   <%= render 'shared/avatar', locals: {user: @user, size: "100x100", class: "img-circle"} %>
   </div>
   
   <div class="information">
     <b><%= @user.name %></b></br>
-    <b><%= @user.posts.count %> posts</b>
+    <b><%= @user.posts.count %> posts</b></br>
+    <b><%= link_to "Friends", user_friendships_path(@user) %></b>
   </div>
 
-  <% if current_user == @user %>
+  <% if current_user_profile?(@user) %>
     <div class="post"> 
   
       <%= form_for(@post, html: { multipart: true }) do |f| %>
@@ -33,7 +34,7 @@
     <% if current_user && Friendship.check_friendships(@user.id, current_user.id).count == 0 %>
       <div class="invite">
       
-        <%= link_to friendships_path(friend_id: @user), method: :post do %>
+        <%= link_to user_friendships_path(@user), method: :post do %>
           <button type="button" class="btn btn-success">Invite to friends</button>
         <% end %>
     
@@ -67,4 +68,3 @@
 <div class="pagination">
   <%= render 'shared/pagination', object: @posts %>
 </div>  
-     

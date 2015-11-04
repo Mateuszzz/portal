@@ -15,16 +15,14 @@
   <ul class="users">
     <% @users.each do |user| %>
       <li>
-        <%= render 'shared/avatar', locals: {user: user, size: "75x75"} %>
+        <%= render 'shared/avatar', locals: {user: user, size: "75x75", class: "img-rounded"} %>
         <%= link_to user.name, user %>
       </li>
     <% end %>
   </ul>
 
-<% else %>
-    
+<% else %>    
    <div>No users found.</div>
-
 <% end %>
 
 <%= render 'shared/pagination', object: @users %>

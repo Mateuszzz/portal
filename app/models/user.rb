@@ -1,11 +1,15 @@
 class User < ActiveRecord::Base
   attr_accessor :remove_avatar
+  
   has_many :posts, dependent: :destroy
   
-  has_many :friendships
+  has_many :friendships, dependent: :destroy
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id", dependent: :destroy
+  
   has_many :invite_friends, -> { where(friendships: { accepted: true}) }, :through => :friendships, :source => :friend
-  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, -> { where(friendships: { accepted: true}) }, :through => :inverse_friendships, :source => :user
+  has_many :pending_invitations, -> { where(friendships: { accepted: false}) }, :through => :friendships, :source => :friend
+  has_many :received_invitations, -> { where(friendships: { accepted: false}) }, :through => :inverse_friendships, :source => :user
  
   has_secure_password
   

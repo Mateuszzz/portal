@@ -2,6 +2,10 @@
 
 first:
   user: john
-  user: matt
+  friend: matt (user)
   accepted: true
-
+  
+second:
+  user: mark
+  friend: john
+  accepted: false

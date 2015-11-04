@@ -28,7 +28,7 @@ class CommentTest < ActiveSupport::TestCase
     assert_not @comment.valid?
   end
   
-   test "comments should be destroyed with post" do
+  test "comments should be destroyed with post" do
      @comment.save
      assert_difference 'Comment.count', -1 do
        @post.destroy

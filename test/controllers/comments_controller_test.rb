@@ -10,6 +10,7 @@ class CommentsControllerTest < ActionController::TestCase
     assert_no_difference 'Comment.count' do
       post :create, post_id: @post, comment: {body: "Holiday!"}
     end
+    assert_not flash.empty?
     assert_redirected_to login_path
   end
 end

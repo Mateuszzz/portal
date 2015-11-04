@@ -13,6 +13,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_no_difference 'Post.count' do
       post :create, post: {title: "Holiday!", picture: @picture}
     end
+    assert_not flash.empty?
     assert_redirected_to login_path
   end
   
@@ -20,6 +21,7 @@ class PostsControllerTest < ActionController::TestCase
     assert_no_difference 'Post.count' do
       delete :destroy, id: @post
     end
+    assert_not flash.empty?
     assert_redirected_to login_path
   end
   

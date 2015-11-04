@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @post = current_user.posts.build if current_user == User.find(params[:id])
+    @post = current_user.posts.build if current_user_profile?(User.find(params[:id]))
     @posts = @user.posts.paginate(page: params[:page], per_page: 9)
   end
   

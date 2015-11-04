@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get 'contact' => 'main_pages#contact'
   
   get 'signup' => 'users#new'
-  resources :users
-  
-  resources :friendships, only: [:create, :update, :destroy]
+  resources :users do
+    resources :friendships, only: [:create, :index, :update, :destroy]
+  end
   
   resources :posts, only: [:create, :show, :destroy] do
     resources :comments, only: [:create]
@@ -18,5 +18,4 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-
 end

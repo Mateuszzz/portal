@@ -1,5 +1,5 @@
 <% if locals[:user].avatar? %>
-  <%= image_tag locals[:user].avatar.url(), size: locals[:size], class: "img-circle" %>
+  <%= image_tag locals[:user].avatar.url(), size: locals[:size], title: locals[:user].name, class: locals[:class] %>
 <% else %>
-  <%= image_tag "profil.jpg", size: locals[:size], class: "img-circle" %>
+  <%= image_tag "profil.jpg", size: locals[:size], title: locals[:user].name, class: locals[:class] %>
 <% end %>

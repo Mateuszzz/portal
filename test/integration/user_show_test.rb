@@ -5,7 +5,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:john)
     @second_user = users(:matt)
-    @third_user = users(:mark)
+    @third_user = users(:james)
   end
   
   test "user profile show" do

@@ -28,20 +28,4 @@ class UserEditTest < ActionDispatch::IntegrationTest
     assert_equal name,  @user.name
     assert_equal email, @user.email
   end
-  
-  test "should redirect edit when user not logged in" do
-    get edit_user_path(@user)
-    assert_redirected_to login_path
-    follow_redirect!
-    assert_template  'sessions/new'
-    assert_not flash.empty?
-  end
-  
-  test "should redirect edit when logged in as wrong user" do
-    log_in_as(@second_user)
-    get edit_user_path(@user)
-    assert_redirected_to @second_user
-    follow_redirect!
-    assert_template 'users/show'
-  end
 end

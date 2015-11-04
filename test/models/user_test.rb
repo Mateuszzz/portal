@@ -85,5 +85,22 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'Post.count', -1 do
       @user.destroy
     end
+  end
+  
+  test "friendship should be destroyed with user" do
+    second_user = users(:john)
+    @user.save
+    @user.friendships.create(friend_id: second_user.id, accepted: "false")
+    assert_difference 'Friendship.count', -1 do
+      @user.destroy
+    end
+    
+    @user = User.new(name: "Tom Test", email: "tom@test.com",
+                     password: "password", password_confirmation: "password")
+    @user.save
+    second_user.friendships.create(friend_id: @user.id, accepted: "false")
+    assert_difference 'Friendship.count', -1 do
+      @user.destroy
+    end
   end 
 end

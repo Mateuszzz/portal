@@ -1,0 +1,54 @@
+<% provide(:title, "Friends") %>
+<% if current_user_profile?(@user) %>
+  
+  <div class="received_invitations">
+    <h1>Received invitations</h1>
+    <% @user.received_invitations.each do |friend| %>
+    
+      <div class="invitation">
+        <%= link_to friend do %>
+          <%= render 'shared/avatar', locals: {user: friend, size: "50x50", class: "img-rounded"} %>
+         <% end %> 
+      </div>
+      
+      <div class="decision">
+        
+        <%= link_to user_friendship_path(friend, friend), method: :put do %>
+            <button type="button" class="btn btn-success btn-sm">Accept</button>
+        <% end %>
+        <%= link_to user_friendship_path(friend, friend), method: :delete do %>
+            <button type="button" class="btn btn-danger btn-sm">Reject</button>
+        <% end %>
+      
+      </div>
+    <% end %>
+  </div>  
+  
+  <div class="line"><hr></div>
+  
+  <div class="pending_invitations">
+    <h1>Pending invitations</h1>
+     <% @user.pending_invitations.each do |friend| %>
+    
+      <div class="friend">
+        <%= link_to friend do %>
+          <%= render 'shared/avatar', locals: {user: friend, size: "50x50", class: "img-rounded"} %>
+        <% end %> 
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="line"><hr></div>
+<% end %>
+
+<div class="friends">
+  <h1>Friends user <%= @user.name %></br>(<%= @user.all_friends.size %>)</h1>
+  <% @user.all_friends.each do |friend| %>
+    
+    <div class="friend">
+      <%= link_to friend do %>
+        <%= render 'shared/avatar', locals: {user: friend, size: "50x50", class: "img-rounded"} %>
+      <% end %> 
+    </div>
+  <% end %>
+</div>

@@ -15,4 +15,8 @@ mark:
   email: mark@test.com
   password_digest: <%= BCrypt::Password.create('password') %>  
 
-
+james:
+  name: james
+  email: james@test.com
+  password_digest: <%= BCrypt::Password.create('password') %>  
+  
