@@ -11,7 +11,11 @@
         <% if current_user %>
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to "Users", users_path %></li>
-            <li><%= link_to "Friends", user_friendships_path(current_user), method: :get %></li>
+            <li>
+              <%= link_to user_friendships_path(current_user), method: :get do %>
+                Friends<%= "(#{current_user.received_invitations.count})" if current_user.received_invitations.count > 0 %>
+              <% end %>
+            </li>
         <!--  <div class="navbar-search">
             <%= form_tag(users_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
               <%= text_field_tag :search, "", class: "form-control input-sm", placeholder: "Search..." %>
